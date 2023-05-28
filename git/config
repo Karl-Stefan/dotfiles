@@ -1,0 +1,25 @@
+[user]
+  name = Karl Stefan Afradi
+  email = afradi@pm.me
+
+[color]
+  ui = auto
+
+[core]
+	editor = nvim
+
+[alias]
+	dotfiles = !git --git-dir=$XDG_CONFIG_HOME/dotfiles --work-tree=$XDG_CONFIG_HOME
+
+[credential]
+	helper = store --file $XDG_STATE_HOME/git/credentials
+
+[url "https://github.com/"]
+  insteadOf = gh:
+
+[url "https://gist.github.com/"]
+  insteadOf = gist:
+
+[url "https://bitbucket.org/"]
+  insteadOf = bb:
+
