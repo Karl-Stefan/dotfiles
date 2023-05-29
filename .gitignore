@@ -1,0 +1,11 @@
+# The repo itself
+/dotfiles
+
+# Other folders
+/alsa
+/gtk-3.0
+/dconf
+/nvim/plugin
+
+# Symlinks
+/dir_colors
