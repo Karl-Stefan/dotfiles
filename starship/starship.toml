@@ -3,6 +3,7 @@
 # ------------------------------------------------------------------------------------------------ #
 
 format = """$os$username$hostname$directory$git_branch\n$character"""
+add_newline = false
 
 [username]
 format = ' [$user]($style)'
