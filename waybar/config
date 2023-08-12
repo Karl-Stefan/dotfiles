@@ -3,15 +3,16 @@
     "layer": "top",
     "position": "top",
     "margin-top": 15,
-    "margin-bottom": 10,
-    "margin-left": 20,
-    "margin-right": 20,
-    "spacing": 10,
+    "margin-bottom": 0,
+    "margin-left": 15,
+    "margin-right": 15,
+    "spacing": 0,
 
     "modules-left": [
       "network#wlan0",
       "network#eth0",
       "network#tun0",
+      "network#virbr0",
     ],
 
     "modules-center": [
@@ -24,14 +25,39 @@
       "memory",
       "disk",
       "network#wifi",
+      "pulseaudio",
+      "custom/brightness",
       "battery",
       "clock",
     ],
 
+    "pulseaudio": {
+      "format": "{icon}  {volume}%",
+      "format-bluetooth": "{icon}  {volume}%",
+      "format-muted": "\uf466  muted",
+      "format-icons": {
+        "headphone": "\udb80\udecb",
+        "hands-free": "\udb80\udecb",
+        "headset": "\udb80\udece",
+        "phone": "\udb80\udff2",
+        "portable": "\udb80\udff2",
+        "car": "\udb80\udd0b",
+        "default": ["", ""]
+      },
+      "scroll-step": 5,
+      "on-click": "pavucontrol",
+    },
+
+    "custom/brightness": {
+      "exec": "brightness get",
+      "format": "\uf522  {}%",
+      "interval": 60,
+    },
+
     "network#wifi": {
       "interface": "wlan0",
-      "format": "\udb81\udda9  {signalStrength}%  {essid}",
-      "format-disconnected": "\udb81\udda9  Disconnected",
+      "format": "\uf43c  {signalStrength}% <span color='#81A1C1'>{essid}</span>",
+      "format-disconnected": "\uf43c   Disconnected",
     },
 
     "user": {
@@ -77,10 +103,6 @@
       },
     },
 
-    "clock#clock2": {
-      "format": " \uf455  {:%d.%m.%y}",
-    },
-
     "battery": {
       "format": "{icon}  {capacity}%",
       "format-icons": ["", "", "", "", ""],
@@ -96,30 +118,40 @@
     },
 
     "memory": {
-      "format": "\udb80\udf5c  {percentage}%",
+      "format": "\uf44e  {percentage}%",
     },
 
     "disk": {
-      "format": "\uf472  {percentage_free}%",
+      "format": "\uf472  {percentage_used}%",
       "path": "/"
     },
 
     "network#wlan0": {
       "interface": "wlan0",
-      "format": "\udb84\udeaa  wlan0  {ipaddr}",
+      "interval": 1,
+      "format": "\udb84\udeaa   wlan0 <span color='#81A1C1'>{ipaddr}</span>   \uf4f2 <span color='#81A1C1'>{bandwidthUpBits}</span>  \uf4ef <span color='#81A1C1'>{bandwidthDownBits}</span>",
       "format-disconnected": "\udb80\udf19  wlan0",
     },
 
     "network#eth0": {
       "interface": "eth0",
-      "format": "\udb80\udf18  eth0\t{ipaddr}",
+      "interval": 1,
+      "format": "\udb84\udeaa   eth0 <span color='#81A1C1'>{ipaddr}</span>   \uf4f2 <span color='#81A1C1'>{bandwidthUpBits}</span>  \uf4ef <span color='#81A1C1'>{bandwidthDownBits}</span>",
       "format-disconnected": "\udb80\udf19  eth0",
     },
 
     "network#tun0": {
       "interface": "tun0",
-      "format": "\udb80\udf18  tun0\t{ipaddr}",
+      "interval": 1,
+      "format": "\udb84\udeaa   tun0 <span color='#81A1C1'>{ipaddr}</span>   \uf4f2 <span color='#81A1C1'>{bandwidthUpBits}</span>  \uf4ef <span color='#81A1C1'>{bandwidthDownBits}</span>",
       "format-disconnected": "\udb80\udf19  tun0",
+    },
+
+    "network#virbr0": {
+      "interface": "virbr0",
+      "interval": 1,
+      "format": "\udb84\udeaa   virbr0 <span color='#81A1C1'>{ipaddr}</span>   \uf4f2 <span color='#81A1C1'>{bandwidthUpBits}</span>  \uf4ef <span color='#81A1C1'>{bandwidthDownBits}</span>",
+      "format-disconnected": "\udb80\udf19  virbr0",
     },
 
   },

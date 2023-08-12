@@ -2,21 +2,33 @@ window#waybar {
   background: transparent;
 }
 
-#network, #keyboard-state, #battery, #workspaces, #cpu, #disk, #memory, #user, #clock {
-  font-family: 'Symbols Nerd Font', 'Roboto';
-  font-weight: 500;
-  font-size: 25px;
+#pulseaudio,
+#custom-brightness,
+#network,
+#keyboard-state,
+#battery,
+#workspaces,
+#cpu,
+#disk,
+#memory,
+#user,
+#clock {
+  font-family: 'Symbols Nerd Font', 'JetBrains Mono';
+  font-weight: 600;
+  font-size: 22px;
   padding: 10px 20px;
-  border-radius: 40px;
+  border-radius: 45px;
+  border: 2px solid rgba(0,0,0,0.3);
+  margin: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: #ECEFF4;
   background: rgba(46, 52, 64, 0.8);
 }
 
-
 #network.disconnected.wifi0,
 #network.disconnected.eth0,
-#network.disconnected.tun0
-{
+#network.disconnected.tun0,
+#network.disconnected.virbr0 {
   color: #4C566A;
 }
 
@@ -38,7 +50,6 @@ window#waybar {
 
 #workspaces {
   font-size: 30px;
-  background: rgba(46, 52, 64, 0.8);
 }
 
 #workspaces button {
