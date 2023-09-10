@@ -49,7 +49,7 @@ alias cat="bat"
 alias top="btop"
 
 # --- Misc. colorize ----------------------------------------------------------------------------- #
-alias exa="exa --color=auto --icons"
+alias exa="exa --color=auto --icons --group-directories-first"
 alias bat="bat --theme=Nord"
 alias ip="ip -color"
 alias grep="grep --color=auto"
