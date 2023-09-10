@@ -49,18 +49,18 @@ alias cat="bat"
 alias top="btop"
 
 # --- Misc. colorize ----------------------------------------------------------------------------- #
-alias exa="exa --color=auto --icons --group-directories-first"
+alias eza="eza --color=auto --icons --group-directories-first"
 alias bat="bat --theme=Nord"
 alias ip="ip -color"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 
 # --- Directory listing -------------------------------------------------------------------------- #
-alias ls="exa --git"
-alias ll="exa -l --git --time-style=long-iso"
-alias lla="exa -la --git --time-style=long-iso"
-alias la="exa -a --git"
-alias tree="exa --tree"
+alias ls="eza --git"
+alias ll="eza -l --git --time-style=long-iso"
+alias lla="eza -la --git --time-style=long-iso"
+alias la="eza -a --git"
+alias tree="eza --tree"
 
 # --- Set default terminal applications ---------------------------------------------------------- #
 alias -s png=icat
