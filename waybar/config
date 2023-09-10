@@ -1,5 +1,5 @@
 [
-  {
+ {
     "layer": "top",
     "position": "top",
     "margin-top": 15,
@@ -17,7 +17,7 @@
 
     "modules-center": [
       "user",
-      "wlr/workspaces",
+      "hyprland/workspaces",
     ],
 
     "modules-right": [
@@ -64,7 +64,7 @@
       "format": "\uf415  {user}",
     },
 
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
 	    "format": "{icon}",
       "all-outputs": false,
 	    "format-icons": {
@@ -75,11 +75,11 @@
         "5": "\udb83\udca8",
       },
       "persistent_workspaces": {
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": [],
-        "5": [],
+        "1": ["DP-1"],
+        "2": ["DP-1"],
+        "3": ["DP-1"],
+        "4": ["DP-1"],
+        "5": ["DP-1"],
       },
       "sort-by-number": true,
       "on-click": "activate"
