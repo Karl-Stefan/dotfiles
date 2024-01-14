@@ -1,5 +1,6 @@
 [
  {
+    "output": ["eDP-1"],
     "layer": "top",
     "position": "top",
     "margin-top": 15,
@@ -10,13 +11,10 @@
 
     "modules-left": [
       "network#wlan0",
-      "network#eth0",
-      "network#tun0",
-      "network#virbr0",
+      "network#wifi",
     ],
 
     "modules-center": [
-      "user",
       "hyprland/workspaces",
     ],
 
@@ -24,7 +22,144 @@
       "cpu",
       "memory",
       "disk",
+      "pulseaudio",
+      "battery",
+      "clock",
+    ],
+
+    "pulseaudio": {
+      "format": "{icon}  {volume}%",
+      "format-bluetooth": "{icon}  {volume}%",
+      "format-muted": "\uf466  muted",
+      "format-icons": {
+        "headphone": "\udb80\udecb",
+        "hands-free": "\udb80\udecb",
+        "headset": "\udb80\udece",
+        "phone": "\udb80\udff2",
+        "portable": "\udb80\udff2",
+        "car": "\udb80\udd0b",
+        "default": ["", ""]
+      },
+      "scroll-step": 5,
+      "on-click": "pavucontrol",
+    },
+
+    "custom/brightness": {
+      "exec": "brightness get",
+      "format": "\uf522  {}%",
+      "interval": 60,
+    },
+
+    "network#wifi": {
+      "interface": "wlan0",
+      "format": "\uf43c  {signalStrength}% <span color='#81A1C1'>{essid}</span>",
+      "format-disconnected": "\uf43c   Disconnected",
+    },
+
+    "user": {
+      "format": "\uf415  {user}",
+    },
+
+    "hyprland/workspaces": {
+	    "format": "{icon}",
+      "all-outputs": false,
+	    "format-icons": {
+        "1": "\udb83\udca0",
+        "2": "\udb83\udca2",
+        "3": "\udb83\udca4",
+        "4": "\udb83\udca6",
+        "5": "\udb83\udca8",
+      },
+      "persistent_workspaces": {
+        "1": ["DP-1"],
+        "2": ["DP-1"],
+        "3": ["DP-1"],
+        "4": ["DP-1"],
+        "5": ["DP-1"],
+      },
+      "sort-by-number": true,
+      "on-click": "activate"
+    },
+
+    "clock": {
+      "format": "\uf43a  {:%H:%M}",
+      "tooltip-format": "<span><tt><small>{calendar}</small></tt></span>",
+      "calendar": {
+        "mode": "year",
+        "mode-mon-col": 3,
+        "on-click-right": "mode",
+        "weeks-pos": "left",
+        "format": {
+          "months": "<span color='#ECEFF4'><b>{}</b></span>",
+          "days": "<span color='#D8DEE9'>{}</span>",
+          "weeks": "<span color='#88C0D0'>{}</span>",
+          "weekdays": "<span>{}</span>",
+          "today": "<span color='#BF616A'><b>{}</b></span>",
+        },
+      },
+    },
+
+    "battery": {
+      "format": "{icon}  {capacity}%",
+      "format-icons": ["", "", "", "", ""],
+      "states": {
+        "warning": 30,
+        "critical": 15,
+      },
+    },
+
+    "cpu": {
+      "interval": 1,
+      "format": "\uf4bc  {usage}%",
+    },
+
+    "memory": {
+      "format": "\uf44e  {percentage}%",
+    },
+
+    "disk": {
+      "format": "\uf472  {percentage_used}%",
+      "path": "/"
+    },
+
+    "network#wlan0": {
+      "interface": "wlan0",
+      "interval": 1,
+      "format": "\udb84\udeaa   wlan0 <span color='#81A1C1'>{ipaddr}</span>   \uf4f2 <span color='#81A1C1'>{bandwidthUpBits}</span>  \uf4ef <span color='#81A1C1'>{bandwidthDownBits}</span>",
+      "format-disconnected": "\udb80\udf19  wlan0",
+    },
+
+    "network#eth0": {
+      "interface": "eth0",
+      "interval": 1,
+      "format": "\udb84\udeaa   eth0 <span color='#81A1C1'>{ipaddr}</span>   \uf4f2 <span color='#81A1C1'>{bandwidthUpBits}</span>  \uf4ef <span color='#81A1C1'>{bandwidthDownBits}</span>",
+      "format-disconnected": "\udb80\udf19  eth0",
+    },
+
+  },
+ {
+    "output": ["DP-1", "DP-2"],
+    "layer": "top",
+    "position": "top",
+    "margin-top": 5,
+    "margin-bottom": 5,
+    "margin-left": 5,
+    "margin-right": 5,
+    "spacing": 0,
+
+    "modules-left": [
+      "network#wlan0",
       "network#wifi",
+    ],
+
+    "modules-center": [
+      "hyprland/workspaces",
+    ],
+
+    "modules-right": [
+      "cpu",
+      "memory",
+      "disk",
       "pulseaudio",
       "custom/brightness",
       "battery",
@@ -139,20 +274,5 @@
       "format": "\udb84\udeaa   eth0 <span color='#81A1C1'>{ipaddr}</span>   \uf4f2 <span color='#81A1C1'>{bandwidthUpBits}</span>  \uf4ef <span color='#81A1C1'>{bandwidthDownBits}</span>",
       "format-disconnected": "\udb80\udf19  eth0",
     },
-
-    "network#tun0": {
-      "interface": "tun0",
-      "interval": 1,
-      "format": "\udb84\udeaa   tun0 <span color='#81A1C1'>{ipaddr}</span>   \uf4f2 <span color='#81A1C1'>{bandwidthUpBits}</span>  \uf4ef <span color='#81A1C1'>{bandwidthDownBits}</span>",
-      "format-disconnected": "\udb80\udf19  tun0",
-    },
-
-    "network#virbr0": {
-      "interface": "virbr0",
-      "interval": 1,
-      "format": "\udb84\udeaa   virbr0 <span color='#81A1C1'>{ipaddr}</span>   \uf4f2 <span color='#81A1C1'>{bandwidthUpBits}</span>  \uf4ef <span color='#81A1C1'>{bandwidthDownBits}</span>",
-      "format-disconnected": "\udb80\udf19  virbr0",
-    },
-
   },
 ]
