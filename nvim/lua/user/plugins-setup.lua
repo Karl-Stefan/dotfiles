@@ -25,7 +25,7 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
-  use('shaunsingh/nord.nvim')
+  use { "catppuccin/nvim", as = "catppuccin" }
   use('akinsho/bufferline.nvim')
   use('nvim-tree/nvim-web-devicons')
   use('nvim-lualine/lualine.nvim')

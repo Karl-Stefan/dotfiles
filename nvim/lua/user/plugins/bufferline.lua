@@ -3,10 +3,7 @@ if not status then
   return
 end
 
-local highlights = require("nord").bufferline.highlights({
-    italic = true,
-    bold = true,
-})
+local highlights = require("catppuccin.groups.integrations.bufferline").get()
 
 bufferline.setup({
   options = {

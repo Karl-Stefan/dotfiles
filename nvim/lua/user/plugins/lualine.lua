@@ -5,7 +5,7 @@ end
 
 lualine.setup({
   options = {
-    theme = 'nord',
+    theme = 'catppuccin',
     disabled_filetypes = { 'packer', 'NvimTree' },
   },
 })
